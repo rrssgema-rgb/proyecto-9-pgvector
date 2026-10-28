@@ -32,11 +32,12 @@ python .\proyecto9_docker.py
 
 Se almacenan cinco frases de seguros de automóvil para `aseguradora_A` y una frase adicional de prueba para `aseguradora_B`.
 
-La consulta de ejemplo es:
+La consulta elegida de ejemplo es:
 
 > Mi vehículo se ha averiado y necesito ayuda
 
 La consulta devuelve las dos frases más similares mediante la distancia coseno entre embeddings de 384 dimensiones.
+
 
 ## 5. Aislamiento entre tenants
 
@@ -65,4 +66,4 @@ Este valor corresponde a una tabla pequeña y a una ejecución concreta; no cons
 
 El usuario de aplicación `app_pgvector` no es superusuario y tiene `NOBYPASSRLS`. La política RLS complementa el filtro de tenant en las consultas.
 
-La configuración de `app.tenant_id` debe controlarse desde una capa de aplicación autenticada y autorizada: no debe permitirse que un usuario final elija libremente el tenant. El aislamiento debe probarse con el usuario de aplicación, no con el usuario administrador de PostgreSQL.
+El aislamiento debe probarse con el usuario de aplicación, no con el usuario administrador de PostgreSQL.
