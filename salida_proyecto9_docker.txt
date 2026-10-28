@@ -1,0 +1,29 @@
+﻿PROYECTO 9 - BUSQUEDA SEMANTICA CON PGVECTOR
+
+1. PREPARANDO POSTGRESQL Y PGVECTOR
+Tabla, indices y politica RLS preparados.
+Usuario de aplicacion configurado.
+Cinco frases guardadas para A y una para B.
+
+2. COMPROBANDO AISLAMIENTO ENTRE TENANTS
+aseguradora_A: 5 filas visibles. AISLAMIENTO OK
+aseguradora_B: 1 filas visibles. AISLAMIENTO OK
+Sin tenant: 0 filas visibles. AISLAMIENTO OK
+
+3. BUSQUEDA SEMANTICA
+Consulta: Mi vehiculo se ha averiado y necesito ayuda
+Tenant: aseguradora_A
+
+Las dos frases mas similares:
+1. Necesito asistencia en carretera porque mi coche no arranca.
+   Distancia coseno: 0.2982
+2. Quiero dar parte de un accidente de coche.
+   Distancia coseno: 0.3874
+
+BUSQUEDA CORRECTA
+
+4. MEDICION DE RENDIMIENTO
+Tiempo de planificacion: 0.251 ms
+Tiempo de ejecucion SQL: 0.089 ms
+
+PROYECTO 9: EJECUCION COMPLETADA CORRECTAMENTE
